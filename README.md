@@ -12,10 +12,11 @@
 ## Быстрый старт
 
 1.  Склонируйте репозиторий:
-    git clone https://github.com/fnmzic/task-word-bot.git
-    cd task-word-bot
+    - git clone https://github.com/fnmzic/task-word-bot.git
     
-2.  Запустите проект:
+    - cd task-word-bot
+    
+3.  Запустите проект:
     docker-compose up --build
     
     Эта команда:
@@ -23,7 +24,7 @@
     -   Запустит контейнеры для бота и базы данных PostgreSQL.
     -   Подключит бота к базе данных.
         
-3.  Проверьте логи бота, чтобы убедиться, что он успешно запустился:  
+4.  Проверьте логи бота, чтобы убедиться, что он успешно запустился:  
     docker-compose logs -f bot
 
 ##  Переменные окружения
