@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database_name
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - bot-network
+
+  bot:
+    build: .
+    container_name: task-word-test-bot
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/your_database_name
+      DATABASE_USERNAME: your_username
+      DATABASE_PASSWORD: your_password
+      TELEGRAM_BOT_NAME: YourBotName       # Название бота
+      TELEGRAM_BOT_TOKEN: YourBotToken     # Токен бота
+    networks:
+      - bot-network
+
+volumes:
+  postgres_data:
+
+networks:
+  bot-network:
